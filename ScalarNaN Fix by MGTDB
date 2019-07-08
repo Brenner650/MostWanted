@@ -1,0 +1,14 @@
+Quote: "I wrote a fix for Most Wanted if a player sets a bounty with no tabs
+
+this is what happens in database/bounties/bounty column
+["N/A",scalar NaN,"Brian","7656119**********"]
+
+Then it breaks server            
+create an SQL procedure:-
+
+update bounties 
+set bounty = "[]"
+where bounty LIKE '%NaN%';
+END
+
+run that every few mins or at each restart"
